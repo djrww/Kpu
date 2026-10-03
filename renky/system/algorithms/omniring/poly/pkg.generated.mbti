@@ -1,0 +1,66 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "ky678/renky/system/algorithms/omniring/poly"
+
+// Values
+pub fn cmp_monom(Array[Int], Array[Int]) -> Int
+
+pub fn monom_div(Array[Int], Array[Int]) -> Array[Int]
+
+pub fn monom_divides(Array[Int], Array[Int]) -> Bool
+
+pub fn monom_lcm(Array[Int], Array[Int]) -> Array[Int]
+
+pub fn mp_all_monomials(Int, Int) -> Array[Array[Int]]
+
+pub fn mp_const(Int, Int, Int) -> MPoly
+
+pub fn mp_divmod(MPoly, Array[MPoly]) -> (Array[MPoly], MPoly)
+
+pub fn mp_groebner(Array[MPoly], Bool) -> Array[MPoly]
+
+pub fn mp_make(Int, Int, Array[(Array[Int], Int)]) -> MPoly
+
+pub fn mp_monom(Int, Int, Array[Int], Int) -> MPoly
+
+pub fn mp_normal_form(MPoly, Array[MPoly]) -> MPoly
+
+pub fn mp_one(Int, Int) -> MPoly
+
+pub fn mp_reduce_basis(Array[MPoly]) -> Array[MPoly]
+
+pub fn mp_spoly(MPoly, MPoly) -> MPoly
+
+pub fn mp_standard_monomials(Array[MPoly], Int, Int) -> (Array[Array[Int]], Bool)
+
+pub fn mp_var(Int, Int, Int) -> MPoly
+
+pub fn mp_zero(Int, Int) -> MPoly
+
+pub fn total_deg(Array[Int]) -> Int
+
+// Errors
+
+// Types and methods
+pub struct MPoly {
+  p : Int
+  nvars : Int
+  terms : Array[(Array[Int], Int)]
+}
+pub fn MPoly::add(Self, Self) -> Self
+pub fn MPoly::degree(Self) -> Int
+pub fn MPoly::equal(Self, Self) -> Bool
+pub fn MPoly::eval(Self, Array[Int]) -> Int
+pub fn MPoly::is_zero(Self) -> Bool
+pub fn MPoly::lc(Self) -> Int
+pub fn MPoly::lm(Self) -> Array[Int]
+pub fn MPoly::lt(Self) -> (Array[Int], Int)
+pub fn MPoly::mul(Self, Self) -> Self
+pub fn MPoly::neg(Self) -> Self
+pub fn MPoly::nterms(Self) -> Int
+pub fn MPoly::scale(Self, Int) -> Self
+pub fn MPoly::sub(Self, Self) -> Self
+pub fn MPoly::to_string(Self) -> String
+
+// Type aliases
+
+// Traits

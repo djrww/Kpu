@@ -1,0 +1,61 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "ky678/renky/system/algorithms/omniring/tropical"
+
+// Values
+pub fn hungarian(Array[Array[Int]]) -> (Int, Array[Int])
+
+pub fn is_balanced(Array[(Array[Int], Int)]) -> Bool
+
+pub fn newton_balancing(Array[(Array[Int], Int)]) -> Array[(Int, Int)]
+
+pub fn newton_cells(Array[(Array[Int], Int)]) -> Array[Array[Int]]
+
+pub fn newton_edges(Array[(Array[Int], Int)]) -> Array[Array[Int]]
+
+pub fn newton_faces(Array[(Array[Int], Int)]) -> Array[Array[Int]]
+
+pub fn tp_make(Int, Array[(Array[Int], Int)]) -> TPoly
+
+pub fn trop_add(Int, Int) -> Int
+
+pub fn trop_closure(Array[Array[Int]]) -> Array[Array[Int]]
+
+pub fn trop_dequantize(Array[Double], Double) -> Double
+
+pub fn trop_det(Array[Array[Int]]) -> Int
+
+pub fn trop_det_bruteforce(Array[Array[Int]]) -> Int
+
+pub fn trop_is_zero(Int) -> Bool
+
+pub fn trop_limit(Array[Double]) -> (Double, Int)
+
+pub fn trop_mat_mul(Array[Array[Int]], Array[Array[Int]]) -> Array[Array[Int]]
+
+pub fn trop_mul(Int, Int) -> Int
+
+pub let trop_one : Int
+
+pub fn trop_prod(Array[Int]) -> Int
+
+pub fn trop_sum(Array[Int]) -> Int
+
+pub let trop_zero : Int
+
+// Errors
+
+// Types and methods
+pub struct TPoly {
+  nvars : Int
+  terms : Array[(Array[Int], Int)]
+}
+pub fn TPoly::add(Self, Self) -> Self
+pub fn TPoly::eval(Self, Array[Int]) -> Int
+pub fn TPoly::mul(Self, Self) -> Self
+pub fn TPoly::multiplicity(Self, Array[Int]) -> Int
+pub fn TPoly::on_hypersurface(Self, Array[Int]) -> Bool
+pub fn TPoly::to_string(Self) -> String
+
+// Type aliases
+
+// Traits

@@ -1,0 +1,45 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "ky678/renky/system/algorithms/omniring/heat"
+
+// Values
+pub fn entropy(Array[Double], Double) -> Double
+
+pub fn expd(Double) -> Double
+
+pub fn free_energy(Array[Double], Double) -> Double
+
+pub fn gibbs(Array[Double], Double) -> Array[Double]
+
+pub fn heat_add(Double, Double, Double) -> Double
+
+pub fn heat_mul(Double, Double) -> Double
+
+pub fn legendre_check(Array[Double], Double) -> (Double, Double)
+
+pub let ln2 : Double
+
+pub fn logd(Double) -> Double
+
+pub fn mean_energy(Array[Double], Double) -> Double
+
+pub fn partition(Array[Double], Double) -> Double
+
+pub fn phi(Double, Double) -> Double
+
+pub fn phi_inv(Double, Double) -> Double
+
+pub fn softmax_h(Double, Double, Double) -> Double
+
+pub fn softmin_all(Array[Double], Double) -> Double
+
+pub fn softmin_h(Double, Double, Double) -> Double
+
+pub fn to_tropical(Array[Double]) -> (Double, Int)
+
+// Errors
+
+// Types and methods
+
+// Type aliases
+
+// Traits

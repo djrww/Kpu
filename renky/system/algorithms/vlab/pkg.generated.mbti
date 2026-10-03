@@ -1,0 +1,653 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "ky678/renky/system/algorithms/vlab"
+
+import {
+  "moonbitlang/core/debug",
+}
+
+// Values
+pub fn cabs(C) -> Double
+
+pub fn cadd(C, C) -> C
+
+pub fn carg(C) -> Double
+
+pub fn cconj(C) -> C
+
+pub fn cdiv(C, C) -> C
+
+pub fn ceq_eps(C, C, Double) -> Bool
+
+pub fn cexp(C) -> C
+
+pub fn cfrom_real(Double) -> C
+
+pub fn ci() -> C
+
+pub fn cinv(C) -> C
+
+pub fn cmat_dagger(CMat) -> CMat
+
+pub fn cmat_get(CMat, Int, Int) -> C
+
+pub fn cmat_is_hermitian(CMat, Double) -> Bool
+
+pub fn cmat_jacobi_hermitian(CMat, Int) -> (Array[Double], CMat)
+
+pub fn cmat_mul(CMat, CMat) -> CMat
+
+pub fn cmat_new(Int, Int) -> CMat
+
+pub fn cmat_rayleigh(CMat, Array[C]) -> Double
+
+pub fn cmat_set(CMat, Int, Int, C) -> Unit
+
+pub fn cmat_unitary_error(CMat) -> Double
+
+pub fn cmat_vec(CMat, Array[C]) -> Array[C]
+
+pub fn cmul(C, C) -> C
+
+pub fn cneg(C) -> C
+
+pub fn cnew(Double, Double) -> C
+
+pub fn cnorm2(C) -> Double
+
+pub fn comb_count(Int, Int) -> Int
+
+pub fn comb_index(Array[Array[Int]], Array[Int]) -> Int
+
+pub fn comb_list(Int, Int) -> Array[Array[Int]]
+
+pub fn cone() -> C
+
+pub fn cpolar(Double, Double) -> C
+
+pub fn cscale(Double, C) -> C
+
+pub fn csqr(C) -> C
+
+pub fn csqrt(C) -> C
+
+pub fn cstr(C) -> String
+
+pub fn csub(C, C) -> C
+
+pub fn cvec_add(Array[C], Array[C]) -> Array[C]
+
+pub fn cvec_cscale(C, Array[C]) -> Array[C]
+
+pub fn cvec_inner(Array[C], Array[C]) -> C
+
+pub fn cvec_is_orthogonal(Array[C], Array[C], Double) -> Bool
+
+pub fn cvec_neg(Array[C]) -> Array[C]
+
+pub fn cvec_norm(Array[C]) -> Double
+
+pub fn cvec_norm2(Array[C]) -> Double
+
+pub fn cvec_orthonormal(Array[Array[C]], Double) -> Array[Array[C]]
+
+pub fn cvec_real_ip(Int) -> IPSp[Array[C]]
+
+pub fn cvec_scale(Double, Array[C]) -> Array[C]
+
+pub fn cvec_zero(Int) -> Array[C]
+
+pub fn czero() -> C
+
+pub fn diag_add(Array[Double], Array[Double]) -> Array[Double]
+
+pub fn diag_apply(Array[Double], Array[Double]) -> Array[Double]
+
+pub fn diag_det(Array[Double]) -> Double
+
+pub fn diag_dim(Int) -> Int
+
+pub fn[V] diag_embed(V) -> (V, V)
+
+pub fn diag_inner(Array[Double], Array[Double]) -> Double
+
+pub fn diag_inv(Array[Double]) -> Array[Double]?
+
+pub fn diag_ip(Int) -> IPSp[Array[Double]]
+
+pub fn diag_mul(Array[Double], Array[Double]) -> Array[Double]
+
+pub fn diag_scale(Double, Array[Double]) -> Array[Double]
+
+pub fn diag_spectral_radius(Array[Double]) -> Double
+
+pub fn diag_to_mat(Array[Double]) -> Mat
+
+pub fn diag_trace(Array[Double]) -> Double
+
+pub fn double_dual_action(Array[Double], Array[DualVec]) -> Array[Double]
+
+pub fn dual_action(DualVec, Array[Double]) -> Double
+
+pub fn dual_add(DualVec, DualVec) -> DualVec
+
+pub fn dual_basis(Int) -> Array[DualVec]
+
+pub fn dual_in_annihilator(DualVec, Array[Array[Double]], Double) -> Bool
+
+pub fn dual_inner(DualVec, DualVec) -> Double
+
+pub fn dual_ip(Int) -> IPSp[DualVec]
+
+pub fn dual_map(Mat) -> Mat
+
+pub fn dual_pairing_matrix(Array[DualVec], Int) -> Mat
+
+pub fn dual_scale(Double, DualVec) -> DualVec
+
+pub fn dual_zero(Int) -> DualVec
+
+pub fn euc_add(Array[Double], Array[Double]) -> Array[Double]
+
+pub fn euc_basis(Int) -> Array[Array[Double]]
+
+pub fn euc_cross3(Array[Double], Array[Double]) -> Array[Double]
+
+pub fn euc_eq_eps(Array[Double], Array[Double], Double) -> Bool
+
+pub fn euc_hadamard(Array[Double], Array[Double]) -> Array[Double]
+
+pub fn euc_inf_norm(Array[Double]) -> Double
+
+pub fn euc_inner(Array[Double], Array[Double]) -> Double
+
+pub fn euc_ip(Int) -> IPSp[Array[Double]]
+
+pub fn euc_max_component(Array[Double]) -> Double
+
+pub fn euc_mean(Array[Double]) -> Double
+
+pub fn euc_neg(Array[Double]) -> Array[Double]
+
+pub fn euc_scale(Double, Array[Double]) -> Array[Double]
+
+pub fn euc_sp(Int) -> VecSp[Array[Double]]
+
+pub fn euc_sum(Array[Double]) -> Double
+
+pub fn euc_zero(Int) -> Array[Double]
+
+pub fn evec(Int, Int) -> Array[Double]
+
+pub fn ext_cross3(Array[Double], Array[Double]) -> Array[Double]
+
+pub fn ext_det(Array[Array[Double]]) -> Double
+
+pub fn ext_from_vec(Int, Array[Double]) -> ExtVec
+
+pub fn ext_hodge_star(ExtVec) -> ExtVec
+
+pub fn ext_inner(ExtVec, ExtVec) -> Double
+
+pub fn ext_interior(Array[Double], ExtVec) -> ExtVec
+
+pub fn ext_ip(Int, Int) -> IPSp[ExtVec]
+
+pub fn ext_norm(ExtVec) -> Double
+
+pub fn ext_parallelogram_area(Array[Double], Array[Double]) -> Double
+
+pub fn ext_wedge(ExtVec, ExtVec) -> ExtVec
+
+pub fn ext_wedge_vecs(Int, Array[Double], Array[Double]) -> ExtVec
+
+pub fn ext_zero(Int, Int) -> ExtVec
+
+pub fn flat_det(Array[Double], Int) -> Double
+
+pub fn fn_convolution(Array[Double], Array[Double]) -> Array[Double]
+
+pub fn fn_delta_basis(Int) -> Array[Array[Double]]
+
+pub fn fn_dft(Array[C]) -> Array[C]
+
+pub fn fn_finite_diff(Array[Double]) -> Array[Double]
+
+pub fn fn_idft(Array[C]) -> Array[C]
+
+pub fn fn_inner(Array[Double], Array[Double]) -> Double
+
+pub fn fn_inner_weighted(Array[Double], Array[Double], Array[Double]) -> Double
+
+pub fn fn_ip(Int, Array[Double]) -> IPSp[Array[Double]]
+
+pub fn fn_parseval_residual(Array[C]) -> Double
+
+pub fn fn_pointwise_mul(Array[Double], Array[Double]) -> Array[Double]
+
+pub fn[V] fn_space_ip(Int, Array[Double], IPSp[V]) -> IPSp[Array[V]]
+
+pub fn fn_sum(Array[Double]) -> Double
+
+pub fn hvec_add(HVec, HVec) -> HVec
+
+pub fn hvec_inner(HVec, HVec) -> Double
+
+pub fn hvec_ip(Int) -> IPSp[HVec]
+
+pub fn hvec_orthonormal(Array[HVec], Double) -> Array[HVec]
+
+pub fn hvec_real_dim(Int) -> Int
+
+pub fn hvec_scale(Double, HVec) -> HVec
+
+pub fn hvec_zero(Int) -> HVec
+
+pub fn[V, W] inj1(IPSp[V], IPSp[W], V) -> (V, W)
+
+pub fn[V, W] inj2(IPSp[V], IPSp[W], W) -> (V, W)
+
+pub fn inversion_count(Array[Int]) -> Int
+
+pub fn[V] ip_angle(IPSp[V], V, V) -> Double
+
+pub fn[V] ip_bessel_residual(IPSp[V], V, Array[V]) -> Double
+
+pub fn[V] ip_coords(IPSp[V], V, Array[V]) -> Array[Double]
+
+pub fn[V] ip_cos(IPSp[V], V, V) -> Double
+
+pub fn[V] ip_dist(IPSp[V], V, V) -> Double
+
+pub fn[V] ip_dist_subspace(IPSp[V], V, Array[V]) -> Double
+
+pub fn[V] ip_from_coords(IPSp[V], Array[Double], Array[V]) -> V
+
+pub fn[V] ip_gram_matrix(IPSp[V], Array[V]) -> Array[Double]
+
+pub fn[V] ip_gram_schmidt(IPSp[V], Array[V], Double) -> Array[V]
+
+pub fn[V] ip_is_orthogonal(IPSp[V], V, V, Double) -> Bool
+
+pub fn[V] ip_norm(IPSp[V], V) -> Double
+
+pub fn[V] ip_normalize(IPSp[V], V) -> V
+
+pub fn[V] ip_orthonormal(IPSp[V], Array[V], Double) -> Array[V]
+
+pub fn[V] ip_proj(IPSp[V], V, V) -> V
+
+pub fn[V] ip_proj_coeff(IPSp[V], V, V) -> Double
+
+pub fn[V] ip_proj_subspace(IPSp[V], V, Array[V]) -> V
+
+pub fn[V] ip_reflect(IPSp[V], V, V) -> V
+
+pub fn[V] ip_rej(IPSp[V], V, V) -> V
+
+pub fn[V] ip_volume(IPSp[V], Array[V]) -> Double
+
+pub fn[V] ips_make(VecSp[V], (V, V) -> Double) -> IPSp[V]
+
+pub fn[V, W] ips_prod(IPSp[V], IPSp[W]) -> IPSp[(V, W)]
+
+pub fn[V, W] ips_prod_weighted(IPSp[V], IPSp[W], Double, Double) -> IPSp[(V, W)]
+
+pub fn[V] ips_scale(IPSp[V], Double) -> IPSp[V]
+
+pub fn jacobi_eigen(Mat, Int) -> (Array[Double], Mat)
+
+pub fn least_squares(Mat, Array[Double]) -> Array[Double]
+
+pub fn lu_solve(Mat, Mat, Array[Int], Array[Double]) -> Array[Double]
+
+pub fn map_direct_sum(Mat, Mat) -> Mat
+
+pub fn mat_add(Mat, Mat) -> Mat
+
+pub fn mat_cholesky(Mat) -> Mat?
+
+pub fn mat_col(Mat, Int) -> Array[Double]
+
+pub fn mat_col_space_basis(Mat, Double) -> Array[Array[Double]]
+
+pub fn mat_det(Mat) -> Double
+
+pub fn mat_diag(Array[Double]) -> Mat
+
+pub fn mat_diagonal(Mat) -> Array[Double]
+
+pub fn mat_eq_eps(Mat, Mat, Double) -> Bool
+
+pub fn mat_exp(Mat) -> Mat
+
+pub fn mat_eye(Int) -> Mat
+
+pub fn mat_frob_inner(Mat, Mat) -> Double
+
+pub fn mat_frob_norm(Mat) -> Double
+
+pub fn mat_from_rows(Array[Array[Double]]) -> Mat
+
+pub fn mat_get(Mat, Int, Int) -> Double
+
+pub fn mat_inv(Mat) -> Mat?
+
+pub fn mat_is_symmetric(Mat, Double) -> Bool
+
+pub fn mat_kronecker(Mat, Mat) -> Mat
+
+pub fn mat_lu(Mat) -> (Mat, Mat, Array[Int])
+
+pub fn mat_mul(Mat, Mat) -> Mat
+
+pub fn mat_new(Int, Int) -> Mat
+
+pub fn mat_null_space_basis(Mat, Double) -> Array[Array[Double]]
+
+pub fn mat_pivot_cols(Mat, Double) -> Array[Int]
+
+pub fn mat_qr(Mat) -> (Mat, Mat)
+
+pub fn mat_rank(Mat, Double) -> Int
+
+pub fn mat_row(Mat, Int) -> Array[Double]
+
+pub fn mat_row_space_basis(Mat, Double) -> Array[Array[Double]]
+
+pub fn mat_rref(Mat, Double) -> Mat
+
+pub fn mat_scale(Double, Mat) -> Mat
+
+pub fn mat_set(Mat, Int, Int, Double) -> Unit
+
+pub fn mat_skew(Mat) -> Mat
+
+pub fn mat_solve(Mat, Array[Double]) -> Array[Double]?
+
+pub fn mat_sub(Mat, Mat) -> Mat
+
+pub fn mat_symmetrize(Mat) -> Mat
+
+pub fn mat_to_tensor(Mat) -> Tensor
+
+pub fn mat_trace(Mat) -> Double
+
+pub fn mat_transpose(Mat) -> Mat
+
+pub fn mat_vec(Mat, Array[Double]) -> Array[Double]
+
+pub fn monomial_count(Int, Int) -> Int
+
+pub fn monomial_eval(Array[Int], Array[Double]) -> Double
+
+pub fn mpoly_add(MPoly, MPoly) -> MPoly
+
+pub fn mpoly_eval(MPoly, Array[Double]) -> Double
+
+pub fn mpoly_gradient(MPoly) -> Array[MPoly]
+
+pub fn mpoly_homogenize(MPoly) -> MPoly
+
+pub fn mpoly_inner(MPoly, MPoly) -> Double
+
+pub fn mpoly_ip(Int) -> IPSp[MPoly]
+
+pub fn mpoly_monomial(Array[Int], Double) -> MPoly
+
+pub fn mpoly_mul(MPoly, MPoly) -> MPoly
+
+pub fn mpoly_normalize(Int, Array[(Array[Int], Double)]) -> MPoly
+
+pub fn mpoly_partial(MPoly, Int) -> MPoly
+
+pub fn mpoly_scale(Double, MPoly) -> MPoly
+
+pub fn mpoly_total_degree(MPoly) -> Int
+
+pub fn mpoly_zero(Int) -> MPoly
+
+pub fn outer_product(Array[Double], Array[Double]) -> Mat
+
+pub fn poly_add(Array[Double], Array[Double]) -> Array[Double]
+
+pub fn poly_compose(Array[Double], Array[Double]) -> Array[Double]
+
+pub fn poly_const(Double) -> Array[Double]
+
+pub fn poly_degree(Array[Double]) -> Int
+
+pub fn poly_deriv(Array[Double]) -> Array[Double]
+
+pub fn poly_dim(Int) -> Int
+
+pub fn poly_divmod(Array[Double], Array[Double]) -> (Array[Double], Array[Double])
+
+pub fn poly_eval(Array[Double], Double) -> Double
+
+pub fn poly_from_roots(Array[Double]) -> Array[Double]
+
+pub fn poly_gcd(Array[Double], Array[Double]) -> Array[Double]
+
+pub fn poly_inner(Array[Double], Array[Double]) -> Double
+
+pub fn poly_integral(Array[Double]) -> Array[Double]
+
+pub fn poly_ip(Int) -> IPSp[Array[Double]]
+
+pub fn poly_lagrange(Array[Double], Array[Double]) -> Array[Double]
+
+pub fn poly_leading(Array[Double]) -> Double
+
+pub fn poly_mod(Array[Double], Array[Double]) -> Array[Double]
+
+pub fn poly_mul(Array[Double], Array[Double]) -> Array[Double]
+
+pub fn poly_newton(Array[Double], Array[Double]) -> Array[Double]
+
+pub fn poly_roots_dk(Array[Double], Int) -> Array[C]
+
+pub fn poly_roots_quadratic(Double, Double, Double) -> (C, C)
+
+pub fn poly_scale(Double, Array[Double]) -> Array[Double]
+
+pub fn poly_sub(Array[Double], Array[Double]) -> Array[Double]
+
+pub fn poly_zero() -> Array[Double]
+
+pub fn power_iteration(Mat, Int) -> (Double, Array[Double])
+
+pub fn prod_dim_sum(Int, Int) -> Int
+
+pub fn[V, W] prod_proj1((V, W)) -> V
+
+pub fn[V, W] prod_proj2((V, W)) -> W
+
+pub fn pure_tensor(Array[Double], Array[Double]) -> Tensor
+
+pub fn quat_add(Quat, Quat) -> Quat
+
+pub fn quat_compose(Quat, Quat) -> Quat
+
+pub fn quat_conj(Quat) -> Quat
+
+pub fn quat_from_axis_angle(Array[Double], Double) -> Quat
+
+pub fn quat_imag(Double, Double, Double) -> Quat
+
+pub fn quat_inner(Quat, Quat) -> Double
+
+pub fn quat_inv(Quat) -> Quat
+
+pub fn quat_mul(Quat, Quat) -> Quat
+
+pub fn quat_neg(Quat) -> Quat
+
+pub fn quat_new(Double, Double, Double, Double) -> Quat
+
+pub fn quat_norm(Quat) -> Double
+
+pub fn quat_norm2(Quat) -> Double
+
+pub fn quat_real(Double) -> Quat
+
+pub fn quat_rotate_vec(Quat, Array[Double]) -> Array[Double]
+
+pub fn quat_scale(Double, Quat) -> Quat
+
+pub fn quat_unit(Quat) -> Quat
+
+pub fn quat_zero() -> Quat
+
+pub fn rayleigh_quotient(Mat, Array[Double]) -> Double
+
+pub fn registry() -> Array[AlgoEntry]
+
+pub fn registry_run() -> (Int, Int, Array[String])
+
+pub fn riesz_inverse(Array[Double]) -> DualVec
+
+pub fn riesz_represent(DualVec) -> Array[Double]
+
+pub fn shifted_legendre(Int) -> Array[Array[Double]]
+
+pub fn spectral_reconstruct(Array[Double], Mat) -> Mat
+
+pub fn sym_add(Mat, Mat) -> Mat
+
+pub fn sym_basis(Int) -> Array[Mat]
+
+pub fn sym_dim(Int) -> Int
+
+pub fn sym_index(Int, Int, Int) -> Int
+
+pub fn sym_inner(Mat, Mat) -> Double
+
+pub fn sym_ip(Int) -> IPSp[Mat]
+
+pub fn sym_pack(Int, Array[Double]) -> Mat
+
+pub fn sym_quadratic(Mat, Array[Double]) -> Double
+
+pub fn sym_scale(Double, Mat) -> Mat
+
+pub fn sym_sp(Int) -> VecSp[Mat]
+
+pub fn sym_spectral_error(Mat) -> Double
+
+pub fn sym_unpack(Mat) -> Array[Double]
+
+pub fn tensor_add(Tensor, Tensor) -> Tensor
+
+pub fn tensor_bilinear_eval(Tensor, Array[Double], Array[Double]) -> Double
+
+pub fn tensor_contract(Tensor) -> Double
+
+pub fn tensor_contract_first(Tensor, Array[Double]) -> Array[Double]
+
+pub fn tensor_contract_second(Tensor, Array[Double]) -> Array[Double]
+
+pub fn tensor_flatten_rank(Tensor, Double) -> Int
+
+pub fn tensor_inner(Tensor, Tensor) -> Double
+
+pub fn tensor_ip(Int, Int) -> IPSp[Tensor]
+
+pub fn tensor_of_maps(Mat, Mat) -> Tensor
+
+pub fn tensor_scale(Double, Tensor) -> Tensor
+
+pub fn tensor_to_mat(Tensor) -> Mat
+
+pub fn tensor_zero(Int, Int) -> Tensor
+
+pub fn[V] vaffine(VecSp[V], Array[Double], Array[V]) -> V
+
+pub fn[V] vaxpy(VecSp[V], Double, V, V) -> V
+
+pub fn[V] vdouble_iter(VecSp[V], V, Int) -> V
+
+pub fn[V, W] vec_prod(VecSp[V], VecSp[W]) -> VecSp[(V, W)]
+
+pub fn[V] vlinc(VecSp[V], Array[Double], Array[V]) -> V
+
+pub fn[V] vmidpoint(VecSp[V], V, V) -> V
+
+pub fn[V] vsub(VecSp[V], V, V) -> V
+
+pub fn[V] vsum(VecSp[V], Array[V]) -> V
+
+pub fn[V] vunscale(VecSp[V], Double, V) -> V
+
+// Errors
+
+// Types and methods
+pub struct AlgoEntry {
+  id : String
+  name : String
+  check : () -> Bool
+}
+
+pub struct C {
+  re : Double
+  im : Double
+} derive(Eq, @debug.Debug)
+
+pub struct CMat {
+  rows : Int
+  cols : Int
+  data : Array[C]
+}
+
+pub struct DualVec {
+  coef : Array[Double]
+} derive(Eq, @debug.Debug)
+
+pub struct ExtVec {
+  n : Int
+  k : Int
+  data : Array[Double]
+} derive(Eq, @debug.Debug)
+
+pub struct HVec {
+  comps : Array[Quat]
+} derive(Eq, @debug.Debug)
+
+pub struct IPSp[V] {
+  sp : VecSp[V]
+  inner : (V, V) -> Double
+}
+
+pub struct MPoly {
+  nvars : Int
+  terms : Array[(Array[Int], Double)]
+}
+
+pub struct Mat {
+  rows : Int
+  cols : Int
+  data : Array[Double]
+} derive(Eq, @debug.Debug)
+
+pub struct Quat {
+  w : Double
+  x : Double
+  y : Double
+  z : Double
+} derive(Eq, @debug.Debug)
+
+pub struct Tensor {
+  m : Int
+  n : Int
+  data : Array[Double]
+} derive(Eq, @debug.Debug)
+
+pub struct VecSp[V] {
+  zero : V
+  add : (V, V) -> V
+  neg : (V) -> V
+  scale : (Double, V) -> V
+}
+
+// Type aliases
+
+// Traits

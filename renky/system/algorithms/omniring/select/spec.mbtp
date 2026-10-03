@@ -1,0 +1,40 @@
+// ---------------------------------------------------------------------------
+// Logic side of the verified selector package (arrays of mathematical integers).
+// ---------------------------------------------------------------------------
+
+///| `i` is a valid index of `xs`.
+predicate in_bounds(xs : FixedArray[Int], i : Int) {
+  (0 <= i) && (i < xs.length())
+}
+
+///| `best` holds a minimum of the scanned prefix `[0, k)`.
+predicate prefix_min(xs : FixedArray[Int], best : Int, k : Int) {
+  ∀ j : Int, ((0 <= j) && (j < k)) → xs[best] <= xs[j]
+}
+
+///| Postcondition of `argmin`.
+predicate argmin_ok(xs : FixedArray[Int], i : Int) {
+  in_bounds(xs, i) && (∀ j : Int, in_bounds(xs, j) → xs[i] <= xs[j])
+}
+
+///| `xs` is weakly increasing.
+predicate sorted(xs : FixedArray[Int]) {
+  ∀ i : Int,
+    ∀ j : Int,
+      (in_bounds(xs, i)) && (in_bounds(xs, j)) && (i <= j) → xs[i] <= xs[j]
+}
+
+///| Postcondition of `bsearch`.
+predicate bsearch_ok(xs : FixedArray[Int], key : Int, result : Option[Int]) {
+  match result {
+    None => ∀ i : Int, in_bounds(xs, i) → xs[i] != key
+    Some(r) => in_bounds(xs, r) && xs[r] == key
+  }
+}
+
+///| A non-empty array has a minimum: the value at `argmin` bounds every entry.
+lemma argmin_is_min(xs : FixedArray[Int], i : Int, j : Int) where {
+  proof_require: argmin_ok(xs, i),
+  proof_require: in_bounds(xs, j),
+  proof_ensure: xs[i] <= xs[j],
+} {}

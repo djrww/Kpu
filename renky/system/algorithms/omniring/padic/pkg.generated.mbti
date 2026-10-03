@@ -1,0 +1,61 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "ky678/renky/system/algorithms/omniring/padic"
+
+// Values
+pub fn hensel_lift(Array[Int], Int, Int, Int) -> Padic
+
+pub fn newton_polygon(Array[Int], Int) -> Array[Int]
+
+pub fn newton_root_valuations(Array[Padic]) -> Array[(Int, Int, Int)]
+
+pub fn newton_slopes(Array[Padic]) -> Array[(Int, Int)]
+
+pub fn padic_exp(Padic) -> Padic
+
+pub fn padic_gen(Int, Int) -> Padic
+
+pub fn padic_log(Padic) -> Padic
+
+pub fn padic_log1p(Padic) -> Padic
+
+pub fn padic_of_int(Int, Int, Int) -> Padic
+
+pub fn padic_one(Int, Int) -> Padic
+
+pub fn padic_zero(Int, Int) -> Padic
+
+pub fn poly_deriv_padic(Array[Padic]) -> Array[Padic]
+
+pub fn poly_eval_padic(Array[Padic], Padic) -> Padic
+
+pub fn teichmuller(Int, Int, Int) -> Padic
+
+// Errors
+
+// Types and methods
+pub struct Padic {
+  p : Int
+  prec : Int
+  digits : Array[Int]
+}
+pub fn Padic::add(Self, Self) -> Self
+pub fn Padic::div(Self, Self) -> Self
+pub fn Padic::div_p(Self, Int) -> Self
+pub fn Padic::equal(Self, Self) -> Bool
+pub fn Padic::inv(Self) -> Self
+pub fn Padic::is_unit(Self) -> Bool
+pub fn Padic::is_zero(Self) -> Bool
+pub fn Padic::mul(Self, Self) -> Self
+pub fn Padic::neg(Self) -> Self
+pub fn Padic::padic_extend(Self, Int) -> Self
+pub fn Padic::pow(Self, Int) -> Self
+pub fn Padic::sub(Self, Self) -> Self
+pub fn Padic::teich_split(Self) -> (Self, Self)
+pub fn Padic::to_int(Self) -> Int
+pub fn Padic::to_string(Self) -> String
+pub fn Padic::trunc(Self, Int) -> Self
+pub fn Padic::val(Self) -> Int
+
+// Type aliases
+
+// Traits

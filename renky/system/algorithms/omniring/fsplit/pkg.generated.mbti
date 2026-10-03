@@ -1,0 +1,47 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "ky678/renky/system/algorithms/omniring/fsplit"
+
+import {
+  "ky678/renky/system/algorithms/omniring/ideal",
+  "ky678/renky/system/algorithms/omniring/poly",
+}
+
+// Values
+pub fn apply_phi(Array[Array[Int]], Array[Int], Int) -> Array[Int]
+
+pub fn compatibly_split(Array[Array[Int]], Array[Array[Int]], Int) -> Bool
+
+pub fn finite_ring(@ideal.IdealState) -> FiniteRing
+
+pub fn in_span(Array[Int], Array[Array[Int]], Int) -> Bool
+
+// Errors
+
+// Types and methods
+pub struct FiniteRing {
+  p : Int
+  nvars : Int
+  basis : Array[Array[Int]]
+  mul : Array[Array[Array[Int]]]
+  frob : Array[Array[Int]]
+  st : @ideal.IdealState
+}
+pub fn FiniteRing::add_vec(Self, Array[Int], Array[Int]) -> Array[Int]
+pub fn FiniteRing::dim(Self) -> Int
+pub fn FiniteRing::elements(Self) -> Array[Array[Int]]
+pub fn FiniteRing::frob_coords(Self, Array[Int]) -> Array[Int]
+pub fn FiniteRing::is_f_split(Self) -> Bool
+pub fn FiniteRing::is_perfect(Self) -> Bool
+pub fn FiniteRing::is_reduced(Self) -> Bool
+pub fn FiniteRing::is_reduced_bruteforce(Self) -> Bool
+pub fn FiniteRing::mul_coords(Self, Array[Int], Array[Int]) -> Array[Int]
+pub fn FiniteRing::of_coords(Self, Array[Int]) -> @poly.MPoly
+pub fn FiniteRing::splitting(Self) -> Array[Array[Int]]?
+pub fn FiniteRing::splitting_system(Self) -> (Array[Int]?, Int)
+
+// Type aliases
+pub using @poly {type MPoly}
+
+pub type Mat = Array[Array[Int]]
+
+// Traits

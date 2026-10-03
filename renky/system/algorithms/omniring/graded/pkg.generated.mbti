@@ -1,0 +1,39 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "ky678/renky/system/algorithms/omniring/graded"
+
+import {
+  "ky678/renky/system/algorithms/omniring/ideal",
+  "ky678/renky/system/algorithms/omniring/poly",
+}
+
+// Values
+pub fn adic_grading(@ideal.IdealState, @poly.MPoly, Int) -> Array[Int]
+
+pub fn binom(Int, Int) -> Int
+
+pub fn exterior_alg(Int, Int) -> GradedAlg
+
+pub fn graded_from_ideal(@ideal.IdealState, Array[Int]) -> GradedAlg
+
+pub fn hilbert_poly_degree(Array[Int], Int) -> Int
+
+pub fn ideal_power(@ideal.IdealState, Int) -> @ideal.IdealState
+
+// Errors
+
+// Types and methods
+pub struct GradedAlg {
+  p : Int
+  n : Int
+  degrees : Array[Int]
+  mult : Array[Array[Array[Int]]]
+  one : Int
+}
+pub fn GradedAlg::hilbert(Self, Int) -> Array[Int]
+pub fn GradedAlg::hilbert_series(Self, Int) -> (Array[Int], Int)
+pub fn GradedAlg::truncate(Self, Int) -> Self
+pub fn GradedAlg::veronese(Self, Int) -> Self
+
+// Type aliases
+
+// Traits

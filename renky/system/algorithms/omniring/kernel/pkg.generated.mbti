@@ -1,0 +1,21 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "ky678/renky/system/algorithms/omniring/kernel"
+
+// Values
+pub fn addmod(Int, Int, Int) -> Int
+
+pub fn modpos(Int, Int) -> Int
+
+pub fn mulmod(Int, Int, Int) -> Int
+
+pub fn negmod(Int, Int) -> Int
+
+pub fn submod(Int, Int, Int) -> Int
+
+// Errors
+
+// Types and methods
+
+// Type aliases
+
+// Traits

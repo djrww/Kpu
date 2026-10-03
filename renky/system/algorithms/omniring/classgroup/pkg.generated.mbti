@@ -1,0 +1,78 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "ky678/renky/system/algorithms/omniring/classgroup"
+
+// Values
+pub fn bqf(Int, Int, Int) -> BQF
+
+pub fn bqf_compose(Int, BQF, BQF) -> BQF
+
+pub fn bqf_equivalent(Int, BQF, BQF) -> Bool
+
+pub fn bqf_pow(Int, BQF, Int) -> BQF
+
+pub fn bqf_principal(Int) -> BQF
+
+pub fn bqf_reduce(BQF) -> BQF
+
+pub fn class_mul(Int, Array[BQF], BQF, BQF) -> BQF
+
+pub fn class_number(Int) -> Int
+
+pub fn class_order(Int, BQF) -> Int
+
+pub fn class_ring(Int, Int) -> ClassRing
+
+pub fn equivalent_forms(BQF, Int) -> Array[BQF]
+
+pub fn form_norm(BQF) -> Int
+
+pub fn form_to_ideal(Int, BQF) -> Array[Array[Int]]
+
+pub fn genus_char(Int, BQF, Int) -> Int
+
+pub fn genus_count(Int) -> Int
+
+pub fn genus_discriminants(Int) -> Array[Int]
+
+pub fn ideal_mul(Int, Array[Array[Int]], Array[Array[Int]]) -> Array[Array[Int]]
+
+pub fn ideal_to_form(Int, Array[Array[Int]]) -> BQF
+
+pub fn is_principal(Int, BQF) -> Bool
+
+pub fn kronecker(Int, Int) -> Int
+
+pub fn reduced_forms(Int) -> Array[BQF]
+
+// Errors
+
+// Types and methods
+pub struct BQF {
+  a : Int
+  b : Int
+  c : Int
+}
+pub fn BQF::disc(Self) -> Int
+pub fn BQF::equal(Self, Self) -> Bool
+pub fn BQF::inverse(Self) -> Self
+pub fn BQF::is_primitive(Self) -> Bool
+pub fn BQF::is_reduced(Self) -> Bool
+pub fn BQF::to_string(Self) -> String
+
+pub struct ClassRing {
+  p : Int
+  d : Int
+  classes : Array[BQF]
+  table : Array[Array[Int]]
+  one : Int
+}
+pub fn ClassRing::add_vec(Self, Array[Int], Array[Int]) -> Array[Int]
+pub fn ClassRing::augmentation(Self, Array[Int]) -> Int
+pub fn ClassRing::dim(Self) -> Int
+pub fn ClassRing::elements(Self) -> Array[Array[Int]]
+pub fn ClassRing::mul_vec(Self, Array[Int], Array[Int]) -> Array[Int]
+pub fn ClassRing::unit_vec(Self) -> Array[Int]
+
+// Type aliases
+
+// Traits

@@ -1,0 +1,690 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "ky678/renky/system/graph"
+
+import {
+  "moonbitlang/core/debug",
+}
+
+// Values
+pub const CUBE_NEG_X : Int = 1
+
+pub const CUBE_NEG_Y : Int = 3
+
+pub const CUBE_NEG_Z : Int = 5
+
+pub const CUBE_POS_X : Int = 0
+
+pub const CUBE_POS_Y : Int = 2
+
+pub const CUBE_POS_Z : Int = 4
+
+pub const DEG2RAD : Double = 0.017453292519943295
+
+pub const HALF_PI : Double = 1.5707963267948966
+
+pub const MERCATOR_MAX_LAT : Double = 1.4844222297453324
+
+pub const MERCATOR_RADIUS : Double = 6378137.0
+
+pub const PI : Double = 3.141592653589793
+
+pub const RAD2DEG : Double = 57.29577951308232
+
+pub const TAU : Double = 6.283185307179586
+
+pub fn approx(Double, Double, Double) -> Bool
+
+pub fn bary_inside(Vec3, Double) -> Bool
+
+pub fn barycentric_2d(Vec2, Vec2, Vec2, Vec2) -> Vec3?
+
+pub fn barycentric_3d(Vec3, Vec3, Vec3, Vec3) -> Vec3?
+
+pub fn bilinear_footprint(Vec2, Int, Int, WrapMode, WrapMode) -> Bilinear
+
+pub fn clamp(Double, Double, Double) -> Double
+
+pub fn cube_from_direction(Vec3) -> CubeCoord
+
+pub fn cube_to_direction(Int, Double, Double) -> Vec3
+
+pub fn deg_to_rad(Double) -> Double
+
+pub fn ecef_to_yup(Vec3) -> Vec3
+
+pub fn edge_function(Vec2, Vec2, Vec2) -> Double
+
+pub fn equirect_from_direction(Vec3) -> Vec2
+
+pub fn equirect_to_direction(Vec2) -> Vec3
+
+pub fn flip_v(Vec2) -> Vec2
+
+pub fn ground_resolution(Double, Double, Double) -> Double
+
+pub fn interpolate1(Vec3, Double, Double, Double) -> Double
+
+pub fn interpolate2(Vec3, Vec2, Vec2, Vec2) -> Vec2
+
+pub fn interpolate3(Vec3, Vec3, Vec3, Vec3) -> Vec3
+
+pub fn lerp(Double, Double, Double) -> Double
+
+pub fn logical_to_physical(Vec2, Double) -> Vec2
+
+pub fn lonlat_to_tile(LonLat, Int, Double) -> (Int, Int)
+
+pub fn lonlat_to_world_pixel(LonLat, Double, Double) -> Vec2
+
+pub fn mercator_to_world_pixel(Vec2, Double, Double) -> Vec2
+
+pub fn mip_extent(Int, Int) -> Int
+
+pub fn mip_level_count(Int, Int) -> Int
+
+pub fn mip_lod(Vec2, Vec2, Int, Int) -> Double
+
+pub fn mod_floor(Int, Int) -> Int
+
+pub fn oct_decode(Vec2) -> Vec3
+
+pub fn oct_encode(Vec3) -> Vec2
+
+pub fn oct_to_uv(Vec2) -> Vec2
+
+pub fn orthonormal_basis(Vec3) -> (Vec3, Vec3)
+
+pub fn perspective_correct(Vec3, Double, Double, Double) -> Vec3
+
+pub fn physical_to_logical(Vec2, Double) -> Vec2
+
+pub fn pixel_center(Int, Int) -> Vec2
+
+pub fn pixel_of(Vec2) -> (Int, Int)
+
+pub fn quadkey_to_tile(String) -> (Int, Int, Int)?
+
+pub fn rad_to_deg(Double) -> Double
+
+pub fn safe_acos(Double) -> Double
+
+pub fn safe_asin(Double) -> Double
+
+pub fn saturate(Double) -> Double
+
+pub fn sign_nz(Double) -> Double
+
+pub fn tangent_frame(Vec3, Vec3, Vec3, Vec2, Vec2, Vec2, Vec3) -> Frame?
+
+pub fn texel_center_uv(Int, Int, Int, Int) -> Vec2
+
+pub fn texel_to_uv(Vec2, Int, Int) -> Vec2
+
+pub fn tile_bounds(Int, Int, Int) -> (LonLat, LonLat)
+
+pub fn tile_to_lonlat(Double, Double, Int) -> LonLat
+
+pub fn tile_to_quadkey(Int, Int, Int) -> String
+
+pub fn triangle_area2(Vec2, Vec2, Vec2) -> Double
+
+pub fn uv_to_oct(Vec2) -> Vec2
+
+pub fn uv_to_texel(Vec2, Int, Int) -> Vec2
+
+pub fn web_mercator_forward(LonLat) -> Vec2
+
+pub fn web_mercator_inverse(Vec2) -> LonLat
+
+pub fn world_pixel_to_lonlat(Vec2, Double, Double) -> LonLat
+
+pub fn world_pixel_to_mercator(Vec2, Double, Double) -> Vec2
+
+pub fn world_size_px(Double, Double) -> Double
+
+pub fn wrap_coord(Double, WrapMode) -> Double
+
+pub fn wrap_pi(Double) -> Double
+
+pub fn wrap_tau(Double) -> Double
+
+pub fn wrap_texel(Int, Int, WrapMode) -> Int
+
+pub fn yup_to_ecef(Vec3) -> Vec3
+
+// Errors
+
+// Types and methods
+pub(all) struct Aabb {
+  min : Vec3
+  max : Vec3
+} derive(Eq, @debug.Debug)
+pub fn Aabb::center(Self) -> Vec3
+pub fn Aabb::contains_point(Self, Vec3) -> Bool
+pub fn Aabb::corner(Self, Int) -> Vec3
+pub fn Aabb::expand(Self, Vec3) -> Self
+pub fn Aabb::from_center_half(Vec3, Vec3) -> Self
+pub fn Aabb::half_extents(Self) -> Vec3
+pub fn Aabb::new(Vec3, Vec3) -> Self
+pub fn Aabb::transform(Self, Mat4) -> Self
+pub fn Aabb::union(Self, Self) -> Self
+
+pub(all) enum Axis {
+  PosX
+  NegX
+  PosY
+  NegY
+  PosZ
+  NegZ
+} derive(Eq, @debug.Debug)
+pub fn Axis::to_vec3(Self) -> Vec3
+
+pub(all) struct Bilinear {
+  x0 : Int
+  y0 : Int
+  x1 : Int
+  y1 : Int
+  fx : Double
+  fy : Double
+} derive(Eq, @debug.Debug)
+
+pub(all) struct Camera {
+  pose : Rigid
+  projection : Projection
+  viewport : Viewport
+} derive(Eq, @debug.Debug)
+pub fn Camera::eye(Self) -> Vec3
+pub fn Camera::forward(Self) -> Vec3
+pub fn Camera::frustum(Self) -> Frustum
+pub fn Camera::look_at(Vec3, Vec3, Vec3, Projection, Viewport) -> Self
+pub fn Camera::new(Rigid, Projection, Viewport) -> Self
+pub fn Camera::orbit(Vec3, Double, Double, Double, Projection, Viewport) -> Self
+pub fn Camera::pick_ray(Self, Double, Double) -> Ray
+pub fn Camera::proj_matrix(Self) -> Mat4
+pub fn Camera::resize(Self, Double, Double) -> Self
+pub fn Camera::right(Self) -> Vec3
+pub fn Camera::screen_to_world(Self, Double, Double, Double) -> Vec3
+pub fn Camera::screen_to_world_at_distance(Self, Double, Double, Double) -> Vec3
+pub fn Camera::up(Self) -> Vec3
+pub fn Camera::view_matrix(Self) -> Mat4
+pub fn Camera::view_proj(Self) -> Mat4
+pub fn Camera::view_proj_rte(Self) -> Mat4
+pub fn Camera::view_to_world(Self, Vec3) -> Vec3
+pub fn Camera::world_to_clip(Self, Vec3) -> Vec4
+pub fn Camera::world_to_ndc(Self, Vec3) -> Vec3?
+pub fn Camera::world_to_screen(Self, Vec3) -> Vec3?
+pub fn Camera::world_to_view(Self, Vec3) -> Vec3
+
+pub(all) enum Containment {
+  Outside
+  Intersecting
+  Inside
+} derive(Eq, @debug.Debug)
+
+pub(all) struct Convention {
+  right : Axis
+  up : Axis
+  forward : Axis
+} derive(Eq, @debug.Debug)
+pub fn Convention::basis_change(Self, Self) -> Mat3
+pub fn Convention::convert_mat4(Self, Self, Mat4) -> Mat4
+pub fn Convention::convert_quat(Self, Self, Quat) -> Quat
+pub fn Convention::convert_vec3(Self, Self, Vec3) -> Vec3
+pub fn Convention::is_right_handed(Self) -> Bool
+pub fn Convention::is_valid(Self) -> Bool
+pub fn Convention::native() -> Self
+pub fn Convention::ros() -> Self
+pub fn Convention::unreal() -> Self
+pub fn Convention::y_up_left_handed() -> Self
+pub fn Convention::z_up_right_handed() -> Self
+
+pub(all) struct CubeCoord {
+  face : Int
+  u : Double
+  v : Double
+} derive(Eq, @debug.Debug)
+
+pub(all) struct Cylindrical {
+  radius : Double
+  azimuth : Double
+  height : Double
+} derive(Eq, @debug.Debug)
+pub fn Cylindrical::from_cartesian(Vec3) -> Self
+pub fn Cylindrical::new(Double, Double, Double) -> Self
+pub fn Cylindrical::to_cartesian(Self) -> Vec3
+
+pub(all) enum DepthMode {
+  ZeroToOne
+  NegOneToOne
+  ReversedZ
+} derive(Eq, @debug.Debug)
+pub fn DepthMode::from_unit(Self, Double) -> Double
+pub fn DepthMode::to_unit(Self, Double) -> Double
+
+pub(all) struct Ellipsoid {
+  a : Double
+  f : Double
+} derive(Eq, @debug.Debug)
+pub fn Ellipsoid::b(Self) -> Double
+pub fn Ellipsoid::e2(Self) -> Double
+pub fn Ellipsoid::from_ecef(Self, Vec3) -> Geodetic
+pub fn Ellipsoid::geocentric_latitude(Self, Double) -> Double
+pub fn Ellipsoid::geodetic_latitude(Self, Double) -> Double
+pub fn Ellipsoid::grs80() -> Self
+pub fn Ellipsoid::meridional_radius(Self, Double) -> Double
+pub fn Ellipsoid::prime_vertical_radius(Self, Double) -> Double
+pub fn Ellipsoid::sphere(Double) -> Self
+pub fn Ellipsoid::to_ecef(Self, Geodetic) -> Vec3
+pub fn Ellipsoid::wgs84() -> Self
+
+pub(all) enum EulerOrder {
+  XYZ
+  XZY
+  YXZ
+  YZX
+  ZXY
+  ZYX
+  XYX
+  XZX
+  YXY
+  YZY
+  ZXZ
+  ZYZ
+} derive(Eq, @debug.Debug)
+pub fn EulerOrder::axes(Self) -> (Int, Int, Int)
+pub fn EulerOrder::is_proper(Self) -> Bool
+
+pub(all) struct Frame {
+  tangent : Vec3
+  bitangent : Vec3
+  normal : Vec3
+} derive(Eq, @debug.Debug)
+pub fn Frame::from_normal(Vec3) -> Self
+pub fn Frame::handedness(Self) -> Double
+pub fn Frame::to_local(Self, Vec3) -> Vec3
+pub fn Frame::to_mat3(Self) -> Mat3
+pub fn Frame::to_world(Self, Vec3) -> Vec3
+
+pub(all) struct Frustum {
+  left : Plane
+  right : Plane
+  bottom : Plane
+  top : Plane
+  near : Plane
+  far : Plane
+} derive(Eq, @debug.Debug)
+pub fn Frustum::classify_aabb(Self, Aabb) -> Containment
+pub fn Frustum::contains_point(Self, Vec3) -> Bool
+pub fn Frustum::from_view_proj(Mat4, DepthMode) -> Self
+pub fn Frustum::intersects_sphere(Self, Vec3, Double) -> Bool
+
+pub(all) struct Geodetic {
+  lat : Double
+  lon : Double
+  height : Double
+} derive(Eq, @debug.Debug)
+pub fn Geodetic::east_ecef(Self) -> Vec3
+pub fn Geodetic::from_degrees(Double, Double, Double) -> Self
+pub fn Geodetic::new(Double, Double, Double) -> Self
+pub fn Geodetic::north_ecef(Self) -> Vec3
+pub fn Geodetic::up_ecef(Self) -> Vec3
+
+pub(all) struct LocalFrame {
+  origin : Vec3
+  axes : Mat3
+} derive(Eq, @debug.Debug)
+pub fn LocalFrame::dir_to_local(Self, Vec3) -> Vec3
+pub fn LocalFrame::ecef_to_render_enu(Self) -> Rigid
+pub fn LocalFrame::enu(Ellipsoid, Geodetic) -> Self
+pub fn LocalFrame::ned(Ellipsoid, Geodetic) -> Self
+pub fn LocalFrame::to_ecef(Self, Vec3) -> Vec3
+pub fn LocalFrame::to_local(Self, Vec3) -> Vec3
+
+pub(all) struct LonLat {
+  lon : Double
+  lat : Double
+} derive(Eq, @debug.Debug)
+pub fn LonLat::from_degrees(Double, Double) -> Self
+pub fn LonLat::new(Double, Double) -> Self
+
+pub(all) struct Mat3 {
+  m00 : Double
+  m01 : Double
+  m02 : Double
+  m10 : Double
+  m11 : Double
+  m12 : Double
+  m20 : Double
+  m21 : Double
+  m22 : Double
+} derive(Eq, @debug.Debug)
+pub fn Mat3::approx_eq(Self, Self, Double) -> Bool
+pub fn Mat3::col(Self, Int) -> Vec3
+pub fn Mat3::determinant(Self) -> Double
+pub fn Mat3::diagonal(Double, Double, Double) -> Self
+pub fn Mat3::from_axis_angle(Vec3, Double) -> Self
+pub fn Mat3::from_cols(Vec3, Vec3, Vec3) -> Self
+pub fn Mat3::from_euler(EulerOrder, Double, Double, Double) -> Self
+pub fn Mat3::from_quat(Quat) -> Self
+pub fn Mat3::from_rows(Vec3, Vec3, Vec3) -> Self
+pub fn Mat3::from_trs2d(Vec2, Double, Vec2) -> Self
+pub fn Mat3::identity() -> Self
+pub fn Mat3::inverse(Self) -> Self?
+pub fn Mat3::look_rotation(Vec3, Vec3) -> Self
+pub fn Mat3::mul_dir2(Self, Vec2) -> Vec2
+pub fn Mat3::mul_point2(Self, Vec2) -> Vec2
+pub fn Mat3::mul_vec3(Self, Vec3) -> Vec3
+pub fn Mat3::normal_matrix(Self) -> Self?
+pub fn Mat3::project_point2(Self, Vec2) -> Vec2?
+pub fn Mat3::rotation2d(Double) -> Self
+pub fn Mat3::rotation_x(Double) -> Self
+pub fn Mat3::rotation_y(Double) -> Self
+pub fn Mat3::rotation_z(Double) -> Self
+pub fn Mat3::row(Self, Int) -> Vec3
+pub fn Mat3::scaling2d(Double, Double) -> Self
+pub fn Mat3::to_col_major(Self) -> FixedArray[Double]
+pub fn Mat3::to_euler(Self, EulerOrder) -> (Double, Double, Double)
+pub fn Mat3::translation2d(Double, Double) -> Self
+pub fn Mat3::transpose(Self) -> Self
+pub impl Mul for Mat3
+
+pub(all) struct Mat4 {
+  m00 : Double
+  m01 : Double
+  m02 : Double
+  m03 : Double
+  m10 : Double
+  m11 : Double
+  m12 : Double
+  m13 : Double
+  m20 : Double
+  m21 : Double
+  m22 : Double
+  m23 : Double
+  m30 : Double
+  m31 : Double
+  m32 : Double
+  m33 : Double
+} derive(Eq, @debug.Debug)
+pub fn Mat4::affine_inverse(Self) -> Self?
+pub fn Mat4::approx_eq(Self, Self, Double) -> Bool
+pub fn Mat4::col(Self, Int) -> Vec4
+pub fn Mat4::decompose(Self) -> Transform?
+pub fn Mat4::determinant(Self) -> Double
+pub fn Mat4::from_col_major(FixedArray[Double]) -> Self
+pub fn Mat4::from_cols(Vec4, Vec4, Vec4, Vec4) -> Self
+pub fn Mat4::from_mat3(Mat3) -> Self
+pub fn Mat4::from_trs(Vec3, Quat, Vec3) -> Self
+pub fn Mat4::get(Self, Int, Int) -> Double
+pub fn Mat4::identity() -> Self
+pub fn Mat4::inverse(Self) -> Self?
+pub fn Mat4::is_affine(Self) -> Bool
+pub fn Mat4::look_at(Vec3, Vec3, Vec3) -> Self
+pub fn Mat4::mul_dir(Self, Vec3) -> Vec3
+pub fn Mat4::mul_point(Self, Vec3) -> Vec3
+pub fn Mat4::mul_vec4(Self, Vec4) -> Vec4
+pub fn Mat4::normal_matrix(Self) -> Mat3?
+pub fn Mat4::project_point(Self, Vec3) -> Vec3?
+pub fn Mat4::relative_to(Self, Vec3) -> Self
+pub fn Mat4::rigid_inverse(Self) -> Self
+pub fn Mat4::rotation(Quat) -> Self
+pub fn Mat4::row(Self, Int) -> Vec4
+pub fn Mat4::scaling(Vec3) -> Self
+pub fn Mat4::to_col_major(Self) -> FixedArray[Double]
+pub fn Mat4::to_col_major_f32(Self) -> FixedArray[Float]
+pub fn Mat4::to_mat3(Self) -> Mat3
+pub fn Mat4::transform_points(Self, FixedArray[Double], FixedArray[Double], Int) -> Unit
+pub fn Mat4::transform_points_f32(Self, FixedArray[Float], FixedArray[Float], Int) -> Unit
+pub fn Mat4::translation(Vec3) -> Self
+pub fn Mat4::translation_part(Self) -> Vec3
+pub fn Mat4::transpose(Self) -> Self
+pub impl Mul for Mat4
+
+pub(all) struct Plane {
+  normal : Vec3
+  d : Double
+} derive(Eq, @debug.Debug)
+pub fn Plane::from_point_normal(Vec3, Vec3) -> Self
+pub fn Plane::from_points(Vec3, Vec3, Vec3) -> Self
+pub fn Plane::signed_distance(Self, Vec3) -> Double
+
+pub(all) struct Polar {
+  radius : Double
+  angle : Double
+} derive(Eq, @debug.Debug)
+pub fn Polar::from_cartesian(Vec2) -> Self
+pub fn Polar::new(Double, Double) -> Self
+pub fn Polar::to_cartesian(Self) -> Vec2
+
+pub(all) enum ProjKind {
+  Perspective
+  Orthographic
+} derive(Eq, @debug.Debug)
+
+pub(all) struct Projection {
+  kind : ProjKind
+  left : Double
+  right : Double
+  bottom : Double
+  top : Double
+  near : Double
+  far : Double
+  depth : DepthMode
+} derive(Eq, @debug.Debug)
+pub fn Projection::aspect(Self) -> Double
+pub fn Projection::fov_y(Self) -> Double
+pub fn Projection::frustum(Double, Double, Double, Double, Double, Double, DepthMode) -> Self
+pub fn Projection::inverse_mat4(Self) -> Mat4
+pub fn Projection::is_infinite_far(Self) -> Bool
+pub fn Projection::is_perspective(Self) -> Bool
+pub fn Projection::linear_depth(Self, Double) -> Double
+pub fn Projection::ndc_depth(Self, Double) -> Double
+pub fn Projection::orthographic(Double, Double, Double, Double, Double, Double, DepthMode) -> Self
+pub fn Projection::orthographic_centered(Double, Double, Double, Double, DepthMode) -> Self
+pub fn Projection::perspective(Double, Double, Double, Double, DepthMode) -> Self
+pub fn Projection::perspective_fov(Double, Double, Double, Double, Double, Double, DepthMode) -> Self
+pub fn Projection::project_view(Self, Vec3) -> Vec3?
+pub fn Projection::to_mat4(Self) -> Mat4
+pub fn Projection::unproject_ndc(Self, Vec3) -> Vec3
+pub fn Projection::view_ray(Self, Double, Double) -> (Vec3, Vec3)
+pub fn Projection::view_z_from_ndc(Self, Double) -> Double
+pub fn Projection::with_aspect(Self, Double) -> Self
+pub fn Projection::with_depth(Self, DepthMode) -> Self
+
+pub(all) struct Quat {
+  x : Double
+  y : Double
+  z : Double
+  w : Double
+} derive(Eq, @debug.Debug)
+pub fn Quat::angle_to(Self, Self) -> Double
+pub fn Quat::approx_eq(Self, Self, Double) -> Bool
+pub fn Quat::conjugate(Self) -> Self
+pub fn Quat::dot(Self, Self) -> Double
+pub fn Quat::from_axis_angle(Vec3, Double) -> Self
+pub fn Quat::from_euler(EulerOrder, Double, Double, Double) -> Self
+pub fn Quat::from_mat3(Mat3) -> Self
+pub fn Quat::from_rotation_vector(Vec3) -> Self
+pub fn Quat::from_to(Vec3, Vec3) -> Self
+pub fn Quat::from_x(Double) -> Self
+pub fn Quat::from_y(Double) -> Self
+pub fn Quat::from_z(Double) -> Self
+pub fn Quat::identity() -> Self
+pub fn Quat::integrate(Self, Vec3, Double) -> Self
+pub fn Quat::inverse(Self) -> Self
+pub fn Quat::length(Self) -> Double
+pub fn Quat::look_rotation(Vec3, Vec3) -> Self
+pub fn Quat::negate(Self) -> Self
+pub fn Quat::new(Double, Double, Double, Double) -> Self
+pub fn Quat::nlerp(Self, Self, Double) -> Self
+pub fn Quat::normalize(Self) -> Self
+pub fn Quat::rotate(Self, Vec3) -> Vec3
+pub fn Quat::slerp(Self, Self, Double) -> Self
+pub fn Quat::to_axis_angle(Self) -> (Vec3, Double)
+pub fn Quat::to_euler(Self, EulerOrder) -> (Double, Double, Double)
+pub fn Quat::to_mat3(Self) -> Mat3
+pub fn Quat::to_rotation_vector(Self) -> Vec3
+pub impl Mul for Quat
+
+pub(all) struct Ray {
+  origin : Vec3
+  dir : Vec3
+} derive(Eq, @debug.Debug)
+pub fn Ray::at(Self, Double) -> Vec3
+pub fn Ray::intersect_aabb(Self, Aabb) -> (Double, Double)?
+pub fn Ray::intersect_plane(Self, Plane) -> Double?
+pub fn Ray::intersect_sphere(Self, Vec3, Double) -> Double?
+pub fn Ray::new(Vec3, Vec3) -> Self
+pub fn Ray::transform(Self, Mat4) -> Self
+
+pub(all) struct Rigid {
+  rotation : Quat
+  translation : Vec3
+} derive(Eq, @debug.Debug)
+pub fn Rigid::from_mat4(Mat4) -> Self
+pub fn Rigid::identity() -> Self
+pub fn Rigid::inverse(Self) -> Self
+pub fn Rigid::lerp(Self, Self, Double) -> Self
+pub fn Rigid::look_at(Vec3, Vec3, Vec3) -> Self
+pub fn Rigid::mul_dir(Self, Vec3) -> Vec3
+pub fn Rigid::mul_point(Self, Vec3) -> Vec3
+pub fn Rigid::new(Quat, Vec3) -> Self
+pub fn Rigid::to_mat4(Self) -> Mat4
+pub impl Mul for Rigid
+
+pub(all) struct Spherical {
+  radius : Double
+  azimuth : Double
+  elevation : Double
+} derive(Eq, @debug.Debug)
+pub fn Spherical::from_cartesian(Vec3) -> Self
+pub fn Spherical::new(Double, Double, Double) -> Self
+pub fn Spherical::to_cartesian(Self) -> Vec3
+
+pub(all) struct Transform {
+  translation : Vec3
+  rotation : Quat
+  scale : Vec3
+} derive(Eq, @debug.Debug)
+pub fn Transform::identity() -> Self
+pub fn Transform::mul_dir(Self, Vec3) -> Vec3
+pub fn Transform::mul_point(Self, Vec3) -> Vec3
+pub fn Transform::new(Vec3, Quat, Vec3) -> Self
+pub fn Transform::to_mat4(Self) -> Mat4
+
+pub(all) struct Vec2 {
+  x : Double
+  y : Double
+} derive(Eq, @debug.Debug)
+pub fn Vec2::abs(Self) -> Self
+pub fn Vec2::angle(Self) -> Double
+pub fn Vec2::approx_eq(Self, Self, Double) -> Bool
+pub fn Vec2::cross(Self, Self) -> Double
+pub fn Vec2::distance(Self, Self) -> Double
+pub fn Vec2::dot(Self, Self) -> Double
+pub fn Vec2::is_finite(Self) -> Bool
+pub fn Vec2::length(Self) -> Double
+pub fn Vec2::length_sq(Self) -> Double
+pub fn Vec2::lerp(Self, Self, Double) -> Self
+pub fn Vec2::max(Self, Self) -> Self
+pub fn Vec2::min(Self, Self) -> Self
+pub fn Vec2::new(Double, Double) -> Self
+pub fn Vec2::normalize(Self) -> Self
+pub fn Vec2::perp(Self) -> Self
+pub fn Vec2::rotate(Self, Double) -> Self
+pub fn Vec2::scale(Self, Double) -> Self
+pub fn Vec2::splat(Double) -> Self
+pub fn Vec2::try_normalize(Self) -> Self?
+pub fn Vec2::zero() -> Self
+pub impl Add for Vec2
+pub impl Mul for Vec2
+pub impl Neg for Vec2
+pub impl Sub for Vec2
+
+pub(all) struct Vec3 {
+  x : Double
+  y : Double
+  z : Double
+} derive(Eq, @debug.Debug)
+pub fn Vec3::abs(Self) -> Self
+pub fn Vec3::angle_to(Self, Self) -> Double
+pub fn Vec3::any_perpendicular(Self) -> Self
+pub fn Vec3::approx_eq(Self, Self, Double) -> Bool
+pub fn Vec3::cross(Self, Self) -> Self
+pub fn Vec3::distance(Self, Self) -> Double
+pub fn Vec3::dot(Self, Self) -> Double
+pub fn Vec3::from_yaw_pitch(Double, Double) -> Self
+pub fn Vec3::get(Self, Int) -> Double
+pub fn Vec3::is_finite(Self) -> Bool
+pub fn Vec3::length(Self) -> Double
+pub fn Vec3::length_sq(Self) -> Double
+pub fn Vec3::lerp(Self, Self, Double) -> Self
+pub fn Vec3::max(Self, Self) -> Self
+pub fn Vec3::min(Self, Self) -> Self
+pub fn Vec3::new(Double, Double, Double) -> Self
+pub fn Vec3::normalize(Self) -> Self
+pub fn Vec3::project_onto(Self, Self) -> Self
+pub fn Vec3::reflect(Self, Self) -> Self
+pub fn Vec3::scale(Self, Double) -> Self
+pub fn Vec3::splat(Double) -> Self
+pub fn Vec3::to_vec4(Self, Double) -> Vec4
+pub fn Vec3::to_yaw_pitch(Self) -> (Double, Double)
+pub fn Vec3::try_normalize(Self) -> Self?
+pub fn Vec3::unit_x() -> Self
+pub fn Vec3::unit_y() -> Self
+pub fn Vec3::unit_z() -> Self
+pub fn Vec3::xy(Self) -> Vec2
+pub fn Vec3::zero() -> Self
+pub impl Add for Vec3
+pub impl Mul for Vec3
+pub impl Neg for Vec3
+pub impl Sub for Vec3
+
+pub(all) struct Vec4 {
+  x : Double
+  y : Double
+  z : Double
+  w : Double
+} derive(Eq, @debug.Debug)
+pub fn Vec4::approx_eq(Self, Self, Double) -> Bool
+pub fn Vec4::dot(Self, Self) -> Double
+pub fn Vec4::get(Self, Int) -> Double
+pub fn Vec4::lerp(Self, Self, Double) -> Self
+pub fn Vec4::new(Double, Double, Double, Double) -> Self
+pub fn Vec4::perspective_divide(Self) -> Vec3?
+pub fn Vec4::scale(Self, Double) -> Self
+pub fn Vec4::xyz(Self) -> Vec3
+pub fn Vec4::zero() -> Self
+pub impl Add for Vec4
+pub impl Neg for Vec4
+pub impl Sub for Vec4
+
+pub(all) struct Viewport {
+  x : Double
+  y : Double
+  width : Double
+  height : Double
+  min_depth : Double
+  max_depth : Double
+} derive(Eq, @debug.Debug)
+pub fn Viewport::aspect(Self) -> Double
+pub fn Viewport::contains(Self, Vec2) -> Bool
+pub fn Viewport::from_logical(Double, Double, Double) -> Self
+pub fn Viewport::from_uv(Self, Vec2) -> Vec2
+pub fn Viewport::full(Double, Double) -> Self
+pub fn Viewport::ndc_to_screen(Self, Vec3, DepthMode) -> Vec3
+pub fn Viewport::ndc_to_screen_xy(Self, Vec2) -> Vec2
+pub fn Viewport::new(Double, Double, Double, Double) -> Self
+pub fn Viewport::screen_to_ndc(Self, Double, Double, Double, DepthMode) -> Vec3
+pub fn Viewport::screen_to_ndc_xy(Self, Vec2) -> Vec2
+pub fn Viewport::to_uv(Self, Vec2) -> Vec2
+
+pub(all) enum WrapMode {
+  Clamp
+  Repeat
+  MirroredRepeat
+} derive(Eq, @debug.Debug)
+
+// Type aliases
+
+// Traits

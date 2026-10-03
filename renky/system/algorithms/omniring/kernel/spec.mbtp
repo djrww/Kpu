@@ -1,0 +1,29 @@
+// ---------------------------------------------------------------------------
+// Logic side of the verified modular kernel.  Minimal on purpose: every extra
+// definition that enters a verification condition costs the solver time, so
+// this package keeps exactly the vocabulary its five algorithms need.
+//
+// `Int` is lowered to Why3's unbounded mathematical integer `int`.
+// ---------------------------------------------------------------------------
+
+///| `p` is an admissible modulus.
+predicate pos(p : Int) {
+  1 <= p
+}
+
+///| `x` is the canonical representative of a residue class modulo `p`.
+predicate in_range(x : Int, p : Int) {
+  (0 <= x) && (x < p)
+}
+
+///| `a ≡ b (mod p)`, spelled with the Euclidean remainder so that the
+///| `int.ComputerDivision` axioms apply directly.
+predicate cong(a : Int, b : Int, p : Int) {
+  (a - b) % p == 0
+}
+
+///| Congruence is reflexive: every integer is congruent to itself.
+lemma cong_refl(a : Int, p : Int) where {
+  proof_require: pos(p),
+  proof_ensure: cong(a, a, p),
+} {}

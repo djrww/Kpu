@@ -1,0 +1,6 @@
+// Package `kernel` is the ONLY proof-enabled package of the module.
+// Every obligation in it is discharged by `moon prove` (Why3 + Z3):
+// mathematical integers, no machine-overflow reasoning, no third-party code.
+options(
+  "proof-enabled": true,
+)

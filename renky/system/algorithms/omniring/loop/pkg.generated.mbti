@@ -1,0 +1,80 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "ky678/renky/system/algorithms/omniring/loop"
+
+import {
+  "ky678/renky/system/algorithms/omniring/ideal",
+}
+
+// Values
+pub fn reduce_ring(@ideal.IdealState) -> @ideal.IdealState
+
+pub fn run_all(Int) -> LoopReport
+
+pub fn stage_classgroup(Int, Int) -> Stage
+
+pub fn stage_cohom(Int) -> Stage
+
+pub fn stage_from_ideal(String, String, @ideal.IdealState) -> Stage
+
+pub fn stage_fsplit(Int) -> Stage
+
+pub fn stage_graded(Int) -> Stage
+
+pub fn stage_padic(Int, Int) -> PadicStage
+
+pub fn stage_semigroup(Int) -> Stage
+
+pub fn stage_smooth(Int) -> Stage
+
+pub fn stage_tropical(Int) -> Stage
+
+// Errors
+
+// Types and methods
+pub struct LoopReport {
+  p : Int
+  stages : Array[Stage]
+  checks : Array[(String, Bool)]
+}
+pub fn LoopReport::closed(Self) -> Bool
+pub fn LoopReport::to_string(Self) -> String
+
+pub struct PadicStage {
+  p : Int
+  prec : Int
+  dim : Int
+  loewy : Int
+  trop_ok : Bool
+  betti : Array[Int]
+  torsion : Array[Int]
+  euler : Int
+  teich_ok : Bool
+  explog_ok : Bool
+  hensel_ok : Bool
+  invariant : Int
+}
+
+pub struct Stage {
+  name : String
+  desc : String
+  p : Int
+  dim : Int
+  hilbert : Array[Int]
+  kdim : Int
+  reduced : Bool
+  fsplit : Bool
+  loewy : Int
+  max_nilpotency : Int
+  trop_ok : Bool
+  maslov_ok : Bool
+  rank_nullity_ok : Bool
+  betti : Array[Int]
+  torsion : Array[Int]
+  euler : Int
+  invariant : Int
+}
+pub fn Stage::to_string(Self) -> String
+
+// Type aliases
+
+// Traits

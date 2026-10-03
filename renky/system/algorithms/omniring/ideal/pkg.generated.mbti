@@ -1,0 +1,54 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "ky678/renky/system/algorithms/omniring/ideal"
+
+import {
+  "ky678/renky/system/algorithms/omniring/ff",
+  "ky678/renky/system/algorithms/omniring/poly",
+}
+
+// Values
+pub fn boxed_standard_monomials(Array[@poly.MPoly], Array[Int]) -> Array[Array[Int]]
+
+pub fn field_equations(Int, Int) -> Array[@poly.MPoly]
+
+pub fn fp_squarefree(@ff.FPoly) -> @ff.FPoly
+
+pub fn ideal_new(Int, Int) -> IdealState
+
+pub fn mp_krull_dim(Array[@poly.MPoly], Int) -> Int
+
+// Errors
+
+// Types and methods
+pub struct IdealState {
+  p : Int
+  nvars : Int
+  gens : Array[@poly.MPoly]
+  raw : Array[@poly.MPoly]
+  mut basis : Array[@poly.MPoly]
+  mut updates : Int
+  mut pairs_done : Int
+  mut finite : Bool
+  mut dim : Int
+  mut kdim : Int
+  mut var_bounds : Array[Int]
+  mut is_unit : Bool
+}
+pub fn IdealState::add(Self, @poly.MPoly) -> Unit
+pub fn IdealState::describe(Self) -> String
+pub fn IdealState::hilbert_fn(Self, Int) -> Array[Int]
+pub fn IdealState::in_ideal(Self, @poly.MPoly) -> Bool
+pub fn IdealState::in_radical(Self, @poly.MPoly) -> Bool
+pub fn IdealState::is_maximal(Self) -> Bool
+pub fn IdealState::membership_witness(Self, @poly.MPoly) -> (Array[@poly.MPoly], @poly.MPoly)
+pub fn IdealState::mul_matrix(Self, @poly.MPoly) -> Array[Array[Int]]
+pub fn IdealState::normal_form(Self, @poly.MPoly) -> @poly.MPoly
+pub fn IdealState::quotient_basis(Self) -> Array[Array[Int]]
+pub fn IdealState::radical(Self) -> Self
+pub fn IdealState::univariate_minpoly(Self, Int) -> @ff.FPoly?
+pub fn IdealState::variety(Self) -> Array[Array[Int]]
+pub fn IdealState::with_field_equations(Self) -> Self
+
+// Type aliases
+
+// Traits

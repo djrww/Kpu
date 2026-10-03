@@ -1,0 +1,64 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "ky678/renky/system/algorithms/omniring/cohom"
+
+// Values
+pub fn all_forms(Int, Int) -> Array[DRForm]
+
+pub fn cp2(Int) -> CohomRing
+
+pub fn dr_cohomology_count(Int, Int) -> (Int, Int)
+
+pub fn dr_cohomology_dims(Int, Int) -> (Int, Int)
+
+pub fn dr_form(Int, Int, Array[Int], Array[Int]) -> DRForm
+
+pub fn dr_well_defined(Int, Int) -> Bool
+
+pub fn rp2(Int) -> CohomRing
+
+pub fn s2xs2(Int) -> CohomRing
+
+pub fn sphere(Int, Int) -> CohomRing
+
+pub fn torus2(Int) -> CohomRing
+
+// Errors
+
+// Types and methods
+pub struct CohomRing {
+  name : String
+  p : Int
+  dims : Array[Int]
+  cup : Array[Array[Array[Int]]]
+  top : Int
+}
+pub fn CohomRing::associativity_ok(Self) -> Bool
+pub fn CohomRing::basis_range(Self, Int) -> (Int, Int)
+pub fn CohomRing::deg(Self, Int) -> Int
+pub fn CohomRing::degree_ok(Self) -> Bool
+pub fn CohomRing::euler(Self) -> Int
+pub fn CohomRing::graded_commutative_ok(Self) -> Bool
+pub fn CohomRing::pairing_matrix(Self, Int) -> Array[Array[Int]]
+pub fn CohomRing::poincare_duality_ok(Self) -> Bool
+pub fn CohomRing::size(Self) -> Int
+pub fn CohomRing::to_string(Self) -> String
+
+pub struct DRForm {
+  p : Int
+  n : Int
+  f : Array[Int]
+  g : Array[Int]
+}
+pub fn DRForm::add(Self, Self) -> Self
+pub fn DRForm::deg(Self) -> Int
+pub fn DRForm::deriv(Self) -> Self
+pub fn DRForm::is_zero(Self) -> Bool
+pub fn DRForm::neg(Self) -> Self
+pub fn DRForm::sub(Self, Self) -> Self
+pub fn DRForm::to_string(Self) -> String
+pub fn DRForm::wedge(Self, Self) -> Self
+
+// Type aliases
+pub type Mat = Array[Array[Int]]
+
+// Traits

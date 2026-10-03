@@ -1,0 +1,15 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "ky678/renky/system/algorithms/omniring/select"
+
+// Values
+pub fn argmin(FixedArray[Int]) -> Int
+
+pub fn bsearch(FixedArray[Int], Int) -> Int?
+
+// Errors
+
+// Types and methods
+
+// Type aliases
+
+// Traits

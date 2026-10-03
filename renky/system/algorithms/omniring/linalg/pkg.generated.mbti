@@ -1,0 +1,54 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "ky678/renky/system/algorithms/omniring/linalg"
+
+// Values
+pub fn det_mod(Array[Array[Int]], Int) -> Int
+
+pub fn hnf(Array[Array[Int]]) -> Array[Array[Int]]
+
+pub fn mat_add(Array[Array[Int]], Array[Array[Int]], Int) -> Array[Array[Int]]
+
+pub fn mat_cols(Array[Array[Int]]) -> Int
+
+pub fn mat_copy(Array[Array[Int]]) -> Array[Array[Int]]
+
+pub fn mat_get(Array[Array[Int]], Int, Int) -> Int
+
+pub fn mat_identity(Int) -> Array[Array[Int]]
+
+pub fn mat_make(Int, Int) -> Array[Array[Int]]
+
+pub fn mat_mul(Array[Array[Int]], Array[Array[Int]], Int) -> Array[Array[Int]]
+
+pub fn mat_rows(Array[Array[Int]]) -> Int
+
+pub fn mat_scale(Array[Array[Int]], Int, Int) -> Array[Array[Int]]
+
+pub fn mat_set(Array[Array[Int]], Int, Int, Int) -> Unit
+
+pub fn mat_transpose(Array[Array[Int]]) -> Array[Array[Int]]
+
+pub fn mat_vec(Array[Array[Int]], Array[Int], Int) -> Array[Int]
+
+pub fn nullspace(Array[Array[Int]], Int) -> Array[Array[Int]]
+
+pub fn rank(Array[Array[Int]], Int) -> Int
+
+pub fn rank_z(Array[Array[Int]]) -> Int
+
+pub fn rowspace(Array[Array[Int]], Int) -> Array[Array[Int]]
+
+pub fn rref(Array[Array[Int]], Int) -> (Array[Array[Int]], Array[Int])
+
+pub fn snf(Array[Array[Int]]) -> Array[Int]
+
+pub fn solve_mod(Array[Array[Int]], Array[Int], Int) -> (Array[Int], Array[Array[Int]])?
+
+// Errors
+
+// Types and methods
+
+// Type aliases
+pub type Mat = Array[Array[Int]]
+
+// Traits

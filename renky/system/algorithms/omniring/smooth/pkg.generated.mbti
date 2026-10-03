@@ -1,0 +1,48 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "ky678/renky/system/algorithms/omniring/smooth"
+
+// Values
+pub fn interpolate(Int, Array[Int]) -> Array[Int]
+
+pub fn jet_const(Int, Int, Int) -> Jet
+
+pub fn jet_heat_flow(Jet, Int) -> Jet
+
+pub fn jet_of_coeffs(Int, Int, Array[Int]) -> Jet
+
+pub fn jet_t(Int, Int) -> Jet
+
+pub fn jet_zero(Int, Int) -> Jet
+
+pub fn poly_eval_mod(Array[Int], Int, Int) -> Int
+
+// Errors
+
+// Types and methods
+pub struct Jet {
+  p : Int
+  order : Int
+  coeffs : Array[Int]
+}
+pub fn Jet::add(Self, Self) -> Self
+pub fn Jet::compose(Self, Self) -> Self
+pub fn Jet::deriv(Self) -> Self
+pub fn Jet::equal(Self, Self) -> Bool
+pub fn Jet::euler(Self) -> Self
+pub fn Jet::eval_at(Self, Int) -> Int
+pub fn Jet::hasse(Self, Int) -> Self
+pub fn Jet::inv(Self) -> Self
+pub fn Jet::is_unit(Self) -> Bool
+pub fn Jet::is_zero(Self) -> Bool
+pub fn Jet::jet_exp(Self) -> Self
+pub fn Jet::jet_log(Self) -> Self
+pub fn Jet::laplacian(Self) -> Self
+pub fn Jet::mul(Self, Self) -> Self
+pub fn Jet::neg(Self) -> Self
+pub fn Jet::scale(Self, Int) -> Self
+pub fn Jet::sub(Self, Self) -> Self
+pub fn Jet::to_string(Self) -> String
+
+// Type aliases
+
+// Traits
