@@ -1,0 +1,4 @@
+// Package `select` is proof-enabled: verified array selection primitives.
+options(
+  "proof-enabled": true,
+)

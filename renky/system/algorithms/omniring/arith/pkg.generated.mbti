@@ -1,0 +1,63 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "ky678/renky/system/algorithms/omniring/arith"
+
+// Values
+pub fn crt(Int, Int, Int, Int) -> Int
+
+pub fn digits(Int, Int) -> Array[Int]
+
+pub fn divisors(Int) -> Array[Int]
+
+pub fn egcd(Int, Int) -> Bezout
+
+pub fn euler_criterion(Int, Int) -> Int
+
+pub fn factorize(Int) -> Array[(Int, Int)]
+
+pub fn from_digits(Array[Int], Int) -> Int
+
+pub fn gcd(Int, Int) -> Int
+
+pub fn invmod(Int, Int) -> Int
+
+pub fn invmod_fermat(Int, Int) -> Int
+
+pub fn is_prime(Int) -> Bool
+
+pub fn is_qr(Int, Int) -> Bool
+
+pub fn jacobi(Int, Int) -> Int
+
+pub fn lcm(Int, Int) -> Int
+
+pub fn legendre(Int, Int) -> Int
+
+pub fn mobius(Int) -> Int
+
+pub fn next_prime(Int) -> Int
+
+pub fn pollard_rho(Int) -> Int
+
+pub fn pow_int(Int, Int) -> Int
+
+pub fn powmod(Int, Int, Int) -> Int
+
+pub fn sqrt_mod(Int, Int) -> Int
+
+pub fn totient(Int) -> Int
+
+pub fn valuation(Int, Int) -> Int
+
+// Errors
+
+// Types and methods
+pub struct Bezout {
+  g : Int
+  x : Int
+  y : Int
+}
+pub fn Bezout::to_string(Self) -> String
+
+// Type aliases
+
+// Traits

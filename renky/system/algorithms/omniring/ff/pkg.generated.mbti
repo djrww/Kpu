@@ -1,0 +1,139 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "ky678/renky/system/algorithms/omniring/ff"
+
+// Values
+pub fn fp_all_irred(Int, Int) -> Array[FPoly]
+
+pub fn fp_berlekamp_kernel(FPoly) -> Array[Array[Int]]
+
+pub fn fp_count_monic_irred(Int, Int) -> Int
+
+pub fn fp_ddf(FPoly) -> Array[(Int, FPoly)]
+
+pub fn fp_edf(FPoly, Int) -> Array[FPoly]
+
+pub fn fp_egcd(FPoly, FPoly) -> (FPoly, FPoly, FPoly)
+
+pub fn fp_elements(Int) -> Array[Fp]
+
+pub fn fp_factor(FPoly) -> Array[(FPoly, Int)]
+
+pub fn fp_find_irreducible(Int, Int) -> FPoly
+
+pub fn fp_frobenius_pow(FPoly, Int, FPoly) -> FPoly
+
+pub fn fp_from_roots(Int, Array[Int]) -> FPoly
+
+pub fn fp_is_irreducible(FPoly) -> Bool
+
+pub fn fp_mk(Int, Int) -> Fp
+
+pub fn fp_monom(Int, Int, Int) -> FPoly
+
+pub fn fp_one(Int) -> FPoly
+
+pub fn fp_powmod(FPoly, Int, FPoly) -> FPoly
+
+pub fn fp_root_count(FPoly) -> Int
+
+pub fn fp_roots(FPoly) -> Array[Int]
+
+pub fn fp_split(FPoly) -> Array[FPoly]
+
+pub fn fp_x(Int) -> FPoly
+
+pub fn fp_zero(Int) -> FPoly
+
+pub fn fpn_create(Int, Int) -> Fpn
+
+pub fn fpn_encode(Fpn) -> Int
+
+pub fn fpn_from_index(Fpn, Int) -> Fpn
+
+pub fn fpn_of(Int, Int, FPoly) -> Fpn
+
+pub fn fpoly(Int, Array[Int]) -> FPoly
+
+// Errors
+
+// Types and methods
+pub struct FPoly {
+  p : Int
+  c : Array[Int]
+}
+pub fn FPoly::add(Self, Self) -> Self
+pub fn FPoly::coeff(Self, Int) -> Int
+pub fn FPoly::degree(Self) -> Int
+pub fn FPoly::deriv(Self) -> Self
+pub fn FPoly::div(Self, Self) -> Self
+pub fn FPoly::divmod(Self, Self) -> (Self, Self)
+pub fn FPoly::equal(Self, Self) -> Bool
+pub fn FPoly::eval(Self, Int) -> Int
+pub fn FPoly::gcd(Self, Self) -> Self
+pub fn FPoly::is_monic(Self) -> Bool
+pub fn FPoly::is_zero(Self) -> Bool
+pub fn FPoly::lead(Self) -> Int
+pub fn FPoly::monic(Self) -> Self
+pub fn FPoly::mul(Self, Self) -> Self
+pub fn FPoly::neg(Self) -> Self
+pub fn FPoly::rem(Self, Self) -> Self
+pub fn FPoly::scale(Self, Int) -> Self
+pub fn FPoly::sub(Self, Self) -> Self
+pub fn FPoly::to_string(Self) -> String
+
+pub struct Fp {
+  p : Int
+  v : Int
+}
+pub fn Fp::add(Self, Self) -> Self
+pub fn Fp::char(Self) -> Int
+pub fn Fp::div(Self, Self) -> Self
+pub fn Fp::equal(Self, Self) -> Bool
+pub fn Fp::frobenius(Self) -> Self
+pub fn Fp::inv(Self) -> Self
+pub fn Fp::is_zero(Self) -> Bool
+pub fn Fp::mul(Self, Self) -> Self
+pub fn Fp::neg(Self) -> Self
+pub fn Fp::one(Int) -> Self
+pub fn Fp::pow(Self, Int) -> Self
+pub fn Fp::repr(Self) -> Int
+pub fn Fp::sub(Self, Self) -> Self
+pub fn Fp::to_string(Self) -> String
+pub fn Fp::zero(Int) -> Self
+
+pub struct Fpn {
+  p : Int
+  n : Int
+  irr : FPoly
+  c : Array[Int]
+}
+pub fn Fpn::add(Self, Self) -> Self
+pub fn Fpn::coeffs(Self) -> Array[Int]
+pub fn Fpn::conjugates(Self) -> Array[Self]
+pub fn Fpn::div(Self, Self) -> Self
+pub fn Fpn::dlog(Self, Self, Self) -> Int
+pub fn Fpn::elements(Self) -> Array[Self]
+pub fn Fpn::equal(Self, Self) -> Bool
+pub fn Fpn::frobenius(Self) -> Self
+pub fn Fpn::frobenius_k(Self, Int) -> Self
+pub fn Fpn::gen(Self) -> Self
+pub fn Fpn::inv(Self) -> Self
+pub fn Fpn::is_zero(Self) -> Bool
+pub fn Fpn::lift(Self, Int) -> Self
+pub fn Fpn::minpoly(Self) -> FPoly
+pub fn Fpn::mul(Self, Self) -> Self
+pub fn Fpn::neg(Self) -> Self
+pub fn Fpn::norm(Self) -> Int
+pub fn Fpn::one(Self) -> Self
+pub fn Fpn::order(Self) -> Int
+pub fn Fpn::pow(Self, Int) -> Self
+pub fn Fpn::primitive_element(Self) -> Self
+pub fn Fpn::size(Self) -> Int
+pub fn Fpn::sub(Self, Self) -> Self
+pub fn Fpn::to_string(Self) -> String
+pub fn Fpn::trace(Self) -> Int
+pub fn Fpn::zero(Self) -> Self
+
+// Type aliases
+
+// Traits

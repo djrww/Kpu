@@ -1,0 +1,5 @@
+import {
+  "ky678/renky/system/algorithms/vlab",
+}
+
+options("is-main": true)

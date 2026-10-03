@@ -1,0 +1,43 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "ky678/renky/system/algorithms/omniring/semigroup"
+
+import {
+  "ky678/renky/system/algorithms/omniring/ideal",
+}
+
+// Values
+pub fn convex_hull(Array[Array[Int]]) -> Array[Array[Int]]
+
+pub fn dilated_interior(Array[Array[Int]], Int) -> Array[Array[Int]]
+
+pub fn dilated_points(Array[Array[Int]], Int) -> Array[Array[Int]]
+
+pub fn ehrhart_fn(Array[Array[Int]], Int) -> Array[Int]
+
+pub fn monomial_map_exponent(Array[Array[Int]], Array[Int]) -> Array[Int]
+
+pub fn newton_coeffs(Array[Int]) -> Array[Int]
+
+pub fn newton_eval(Array[Int], Int) -> Int
+
+pub fn semigroup_new(Int, Array[Array[Int]]) -> AffineSemigroup
+
+pub fn toric_ideal(Array[Array[Int]], Int, Int) -> @ideal.IdealState
+
+// Errors
+
+// Types and methods
+pub struct AffineSemigroup {
+  n : Int
+  gens : Array[Array[Int]]
+}
+pub fn AffineSemigroup::contains(Self, Array[Int]) -> Bool
+pub fn AffineSemigroup::elements(Self, Int) -> Array[Array[Int]]
+pub fn AffineSemigroup::hilbert(Self, Array[Int], Int, Int) -> Array[Int]
+pub fn AffineSemigroup::in_lattice(Self, Array[Int]) -> Bool
+pub fn AffineSemigroup::is_normal(Self, Int, Int) -> Bool
+pub fn AffineSemigroup::lattice_hnf(Self) -> Array[Array[Int]]
+
+// Type aliases
+
+// Traits

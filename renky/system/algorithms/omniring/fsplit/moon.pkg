@@ -1,0 +1,11 @@
+import {
+  "ky678/renky/system/algorithms/omniring/kernel",
+  "ky678/renky/system/algorithms/omniring/arith",
+  "ky678/renky/system/algorithms/omniring/linalg",
+  "ky678/renky/system/algorithms/omniring/poly",
+  "ky678/renky/system/algorithms/omniring/ideal",
+}
+
+import {
+  "ky678/renky/system/algorithms/omniring/ff",
+} for "wbtest"

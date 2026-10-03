@@ -1,0 +1,10 @@
+warnings = "-implicit_impl_as_method"
+
+import {
+  "moonbitlang/core/math",
+  "moonbitlang/core/double",
+}
+
+import {
+  "moonbitlang/core/math",
+} for "test"

@@ -1,0 +1,54 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "ky678/renky/system/algorithms/omniring/homology"
+
+// Values
+pub fn chain_map_new(Complex, Complex, Array[Array[Array[Int]]]) -> ChainMap
+
+pub fn complex_new(Int, Array[Int], Array[Array[Array[Int]]]) -> Complex
+
+pub fn components(Int, Array[(Int, Int)]) -> Int
+
+pub fn cycle_rank(Int, Array[(Int, Int)]) -> Int
+
+pub fn direct_sum(Complex, Complex) -> Complex
+
+pub fn graph_complex(Int, Array[(Int, Int)], Int) -> Complex
+
+pub fn koszul_two_term(Array[Array[Int]], Int) -> Complex
+
+pub fn mapping_cone(ChainMap) -> Complex
+
+pub fn tensor_product(Complex, Complex) -> Complex
+
+// Errors
+
+// Types and methods
+pub struct ChainMap {
+  a : Complex
+  b : Complex
+  maps : Array[Array[Array[Int]]]
+}
+pub fn ChainMap::is_valid(Self) -> Bool
+
+pub struct Complex {
+  p : Int
+  ranks : Array[Int]
+  diffs : Array[Array[Array[Int]]]
+}
+pub fn Complex::betti(Self) -> Array[Int]
+pub fn Complex::euler(Self) -> Int
+pub fn Complex::homology(Self) -> Array[HGroup]
+pub fn Complex::homology_euler(Self) -> Int
+pub fn Complex::is_valid(Self) -> Bool
+pub fn Complex::torsion_order(Self) -> Int
+
+pub struct HGroup {
+  betti : Int
+  torsion : Array[Int]
+}
+pub fn HGroup::to_string(Self) -> String
+
+// Type aliases
+pub type Mat = Array[Array[Int]]
+
+// Traits

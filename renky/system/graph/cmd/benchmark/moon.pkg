@@ -1,0 +1,7 @@
+import {
+  "ky678/renky/system/graph",
+  "moonbitlang/core/bench",
+  "moonbitlang/core/double",
+}
+
+pkgtype(kind: "executable")

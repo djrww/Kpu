@@ -1,0 +1,9 @@
+import {
+  "ky678/renky/system/algorithms/omniring/loop",
+  "ky678/renky/system/algorithms/omniring/classgroup",
+  "ky678/renky/system/algorithms/omniring/fsplit",
+  "ky678/renky/system/algorithms/omniring/ideal",
+  "ky678/renky/system/algorithms/omniring/poly",
+}
+
+options("is-main": true)
